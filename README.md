@@ -20,8 +20,7 @@ Run npm install to install dependencies
 Run npm run dev to start the app
 
 
-License
-Tactify is licensed under the MIT License. See the LICENSE file for more information.
+
 
 
 
