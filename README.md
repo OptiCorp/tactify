@@ -1,5 +1,4 @@
 # Tactify
-Tactify is the ultimate guide to mastering the art of winning in Team Fight Tactics. Whether you're a seasoned player or just starting out, our expertly crafted composition strategies will help you dominate the competition.
 
 Getting Started
 To get started with Tactify, simply clone or download the repository and follow the installation instructions in the README.md file.
