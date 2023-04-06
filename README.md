@@ -17,8 +17,8 @@ Installation
 
 Clone or download the repository <br />
 Navigate to the project directory <br />
-Run npm install to install dependencies <br />
-Run npm run dev to start the app 
+Run <code>npm i</code> to install dependencies <br />
+Run <code>npm run dev</code> to start the app 
 
 
 
