@@ -1,6 +1,6 @@
 # Tactify
 
-## Getting Started
+### Getting Started
 To get started with Tactify, simply clone or download the repository and follow the installation instructions in the README.md file.
 
 ### Features
@@ -15,10 +15,10 @@ Installation
 
 ### To install Tactify, follow these steps:
 
-Clone or download the repository
-Navigate to the project directory
-Run npm install to install dependencies
-Run npm run dev to start the app
+Clone or download the repository <br />
+Navigate to the project directory <br />
+Run npm install to install dependencies <br />
+Run npm run dev to start the app 
 
 
 
