@@ -15,6 +15,13 @@ export type Character = {
     }
   }
 
+
+export type TChampion = {
+  titles?: string[];
+  images?: string;
+  tags?: string[];
+}
+
 export type Props = {
     margin : string
 }
