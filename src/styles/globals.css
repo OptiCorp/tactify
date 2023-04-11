@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.test-width {
+    @media (min-width: 768px) {
+            width: 32rem
+    }
+}

@@ -12,7 +12,7 @@ export default function ChampionPool() {
   
 
 
-  const [imagePaths, setimagePaths] = useState<string[]>([])
+  const [imagePaths, setImagePaths] = useState<string[]>([])
   const [championName, setChampionName] = useState<{ titles: string[], images: string, tags: string[]}[]>()
   
  
@@ -33,7 +33,7 @@ export default function ChampionPool() {
         }
       })
       
-      setimagePaths(champions.map(champion => champion.images))
+      setImagePaths(champions.map(champion => champion.images))
       setChampionName(champions.map(champion => champion))
     });
   }
@@ -48,7 +48,8 @@ export default function ChampionPool() {
         return null
       }
       return (
-        <div className='grid grid-cols-6  gap-8 text-xs'>{imagePaths.map((imagesUrl, index) => {
+        <div className='grid grid-cols-6 text-xs overflow-y-auto
+         h-64  p-6 '>{imagePaths.map((imagesUrl, index) => {
           const imagePath = imagesUrl.slice(1)
           const [imageLoaded, setImageLoaded] = useState(true)
 
@@ -68,20 +69,20 @@ export default function ChampionPool() {
           
         
           return (
-              <div className='flex flex-col items-center'>
-                { champion ?
-                  <>
-                    
-                     <Image className='cursor-grab rounded-full  overflow-hidden' src={imagePath} onError={handleImageError}   height={50} width={50} alt={""}
+                <div className='flex flex-col items-center'>
+                  { champion ?
+                    <>
                       
-                      /> 
+                      <Image className='cursor-grab rounded-full overflow-hidden' src={imagePath} onError={handleImageError}   height={50} width={50} alt={""}
+                        
+                        /> 
+                      
+                      <div className=''>{champion.names.replace(/([A-Z])/g, ' $1').trim()}</div> 
+                    </> : null
+                  }
                     
-                    <div className=''>{champion.names.replace(/([A-Z])/g, ' $1').trim()}</div> 
-                  </> : null
-                }
-                  
-                  
-              </div>
+                    
+                </div>
           )
         })}</div>
       )
@@ -101,7 +102,7 @@ export default function ChampionPool() {
 
     return (
       <div className="">
-          <div className='grid '>
+          <div className='grid'>
             {/* {characterImgs.map((characterImg, idx) => (
               <div key={idx} draggable={true} className='cursor-grab'>
                 {characterImg ? <Image src={characterImg} alt="character img" width={100} height={100} /> : <></>}
