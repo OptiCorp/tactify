@@ -1,6 +1,6 @@
 import type { Props } from "../types"
 
-function Searchbar({margin}: Props) {
+function Searchbar() {
     
     return (
         <form className={`flex items-center`}>   

@@ -49,7 +49,9 @@ function TilesMap() {
                                 
                                 
                            
-                                <div className="absolute -top-4 -left-3 bg-red-400 rounded-full w-10 h-10 items-center justify-center flex text-white">{key}</div>
+                                <div className="absolute -top-4 -left-3 bg-red-400 rounded-full w-10 h-10 items-center justify-center flex text-white">
+                                    {key}
+                                </div>
                                 {displayImage ? <img src={value} /> : <></>}
                              </div>
                         </div>
