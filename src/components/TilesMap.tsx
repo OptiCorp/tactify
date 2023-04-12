@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-import { champions } from "~/champions"
-import ChampionInfoCard from "./ChampionInfoCard"
 import ChampionsPool from "./ChampionsPool"
 
 function TilesMap() {
@@ -102,7 +100,7 @@ function TilesMap() {
    
     return (
         <>
-            <div className="grid grid-cols-7 gap-4 mb-4" >
+            <div className="grid grid-cols-7 gap-4 mb-4 p-4" >
                 {Object.entries(tileMapValue).map(([key, value], idx) => {
                     let valueText = value + ""
                     let displayImage = valueText.endsWith(".png")
