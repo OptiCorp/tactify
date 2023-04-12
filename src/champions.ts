@@ -106,259 +106,259 @@ export const champions = [
         {
             name: "Jhin",
             cost: 4,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Riftwalker", "Renegade"],
             img: "champions/jhin.png"
         },
         {
             name: "Jinx",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Anima Squad", "Prankster"],
             img: "champions/jinx.png"
         },
         {
             name: "Kaisa",
             cost: 3,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Star Guardian", "Quickdraw"],
             img: "champions/kaisa.png"
         },
         {
             name: "Kayle",
             cost: 1,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Undederground", "Duelist"],
             img: "champions/kayle.png"
         },
         {
             name: "LeBlanc",
             cost: 3,
-            traits: ["Ox Force", "Mascot", "Aegis"],
+            traits: ["Admin", "Hacker", "Spellslinger"],
             img: "champions/leblanc.png"
         },
         {
             name: "Lee Sin",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Supers", "Brawler", "Heart"],
             img: "champions/leesin.png"
         },
         {
             name: "Leona",
             cost: 5,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Mecha: PRIME", "Aegis", "Renegade"],
             img: "champions/leona.png"
         },
         {
             name: "Lucian",
             cost: 1,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["InfiniTeam", "Quickdraw", "Renegade"],
             img: "champions/lucian.png"
         },
         {
             name: "Lulu",
             cost: 1,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Gadgeteen", "Heart"],
             img: "champions/lulu.png"
         },
         {
             name: "Lux",
             cost: 1,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Star Guardian", "Spellslinger"],
             img: "champions/lux.png"
         },
         {
             name: "Malphite",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Supers", "Mascot"],
             img: "champions/malphite.png"
         },
         {
             name: "Miss Fortune",
             cost: 4,
-            traits: ["Ox Force", "Mascot", "Aegis"],
+            traits: ["Anima Squad", "Ace", "Quickdraw"],
             img: "champions/missfortune.png"
         },
         {
             name: "Mordekaiser",
             cost: 5,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["LaserCorps", "Ace"],
             img: "champions/mordekaiser.png"
         },
         {
             name: "Morgana",
             cost: 4,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Threat"],
             img: "champions/morgana.png"
         },
         {
             name: "Nasus",
             cost: 1,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Anima Squad", "Mascot"],
             img: "champions/nasus.png"
         },
         {
             name: "Neeko",
             cost: 4,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Star Guardian", "Spellslinger"],
             img: "champions/neeko.png"
         },
         {
             name: "Nilah",
             cost: 3,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Star Gurdian", "Duelist"],
             img: "champions/nilah.png"
         },
         {
             name: "Nunu",
             cost: 5,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Gadgeteen", "Mascot"],
             img: "champions/nunu.png"
         },
         {
             name: "Pantheon",
             cost: 1,
-            traits: ["Ox Force", "Mascot", "Aegis"],
+            traits: ["InfiniTeam", "Heart"],
             img: "champions/pantheon.png"
         },
         {
             name: "Poppy",
             cost: 1,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Gadgeteen", "Defender"],
             img: "champions/poppy.png"
         },
         {
             name: "Pyke",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Riftwalker", "Hacker"],
             img: "champions/pyke.png"
         },
         {
             name: "Rammus",
             cost: 3,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Threat"],
             img: "champions/rammus.png"
         },
         {
             name: "Rell",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Star Guardian", "Defender"],
             img: "champions/rell.png"
         },
         {
             name: "Renekton",
             cost: 1,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["LaserCorps", "Brawler"],
             img: "champions/renekton.png"
         },
         {
             name: "Riven",
             cost: 3,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Anima Squad", "Brawler", "Defender"],
             img: "champions/riven.png"
         },
         {
             name: "Samira",
             cost: 4,
-            traits: ["Ox Force", "Mascot", "Aegis"],
+            traits: ["Underground", "Sureshot", "Ace"],
             img: "champions/samira.png"
         },
         {
             name: "Shen",
             cost: 3,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["InfiniTeam", "Defender", "Hacker"],
             img: "champions/shen.png"
         },
         {
             name: "Sivir",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["InfiniTeam", "Sureshot"],
             img: "champions/sivir.png"
         },
         {
             name: "Sona",
             cost: 3,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Underground", "Heart", "Spellslinger"],
             img: "champions/sona.png"
         },
         {
             name: "Sylas",
             cost: 1,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Anima Squad", "Renegade"],
             img: "champions/sylas.png"
         },
         {
             name: "Syndra",
             cost: 5,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Star Guardian", "Heart"],
             img: "champions/syndra.png"
         },
         {
             name: "Twisted Fate",
             cost: 4,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["InfiniTeam", "Duelist", "Spellslinger"],
             img: "champions/twisted-fate.png"
         },
         {
             name: "Ultimate Ezreal",
             cost: 5,
-            traits: ["Ox Force", "Mascot", "Aegis"],
+            traits: ["InfiniTeam", "Parallel", "Sureshot"],
             img: "champions/ultimateezreal.png"
         },
         {
             name: "Urgot",
             cost: 5,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Threat"],
             img: "champions/urgot.png"
         },
         {
             name: "Vayne",
             cost: 3,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Anima Squad", "Duelist"],
             img: "champions/vayne.png"
         },
         {
             name: "Vex",
             cost: 3,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Riftwalker", "Mascot"],
             img: "champions/vex.png"
         },
         {
             name: "Vi",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Underground", "Aegis", "Brawler"],
             img: "champions/vi.png"
         },
         {
             name: "Viego",
             cost: 4,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Ox Force", "Renegade", "Heart"],
             img: "champions/viego.png"
         },
         {
             name: "Warwick",
             cost: 4,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Admin", "LaserCrops", "Brawler"],
             img: "champions/warwick.png"
         },
         {
             name: "Wukong",
             cost: 1,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Mecha: PRIME", "Defender"],
             img: "champions/wukong.png"
         },
         {
             name: "Yasuo",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["LaserCorps", "Duelist"],
             img: "champions/yasuo.png"
         },
         {
             name: "Zac",
             cost: 4,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Riftwalker", "Hacker"],
             img: "champions/zac.png"
         },
         {
             name: "Aatrox",
             cost: 4,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Threat"],
             img: "champions/aatrox.png"
         },
         
