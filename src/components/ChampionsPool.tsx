@@ -6,9 +6,9 @@ import Searchbar from "./Searchbar"
 
 function ChampionsPool(props) {
     const [hoveredChamp, setHoveredChamp] = useState(null)
-    const [sortByName, setSortByName] = useState(true)
-    const [sortByCost, setSortByCost] = useState(false)
-    const [selected, setSelected] = useState("byName")
+    const [sortByName, setSortByName] = useState(false)
+    const [sortByCost, setSortByCost] = useState(true)
+    const [selected, setSelected] = useState("byCost")
     function handleHovering(champion) {
         setHoveredChamp(champion)
     }
@@ -41,14 +41,15 @@ function ChampionsPool(props) {
                 </div>
                 <div className="mb-4 mt-2">
                     <div className="flex gap-2">
-                        <div>
-                            <input id="tanks" type={"radio"} value={`byName`} checked={selected === "byName"} name="sorting" onChange={() => handleSortByName()} />
-                            <label className="ml-2" htmlFor="tanks">A-Z</label>
-                        </div>
                         <div className="flex gap-2">
                             <input id="cost" type={"radio"} name="sorting" value={`byCost`} checked={selected === "byCost"} onChange={() => handleSortByCost()} />
                                 <label className="flex" htmlFor="cost">Cost</label>
                         </div>
+                        <div>
+                            <input id="tanks" type={"radio"} value={`byName`} checked={selected === "byName"} name="sorting" onChange={() => handleSortByName()} />
+                            <label className="ml-2" htmlFor="tanks">A-Z</label>
+                        </div>
+                        
                     </div>
                 </div>
             </div> 
