@@ -8,11 +8,12 @@ import TilesMap from "~/components/TilesMap"
 function CreateCompPage() {
     return (
         <div>
-            <Navbar />
-            <div className="grid p-10 place-items-center">
-                <h1 className="mb-6">Create Comp</h1>
+            {/* <Navbar /> */}
+            <div className="flex justify-center mb-10 text-6xl">
+                <h1>TACTIFY</h1>
+            </div>
+            <div className="grid place-items-center">
                 <TilesMap />
-                
             </div>
         </div>
     )
