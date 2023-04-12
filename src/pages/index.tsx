@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 
 import Navbar from "~/components/Navbar";
+import CreateCompPage from "./create-comp-page";
 
 const Home: NextPage = () => {
   return (
@@ -12,8 +13,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="">
-        <Navbar />
-        <div className="flex flex-col items-center">
+        <CreateCompPage />
+        {/* <Navbar /> */}
+  {/*       <div className="flex flex-col items-center">
           <h1 className="text-6xl">Tactify</h1>
           <h2 className="text-slate-400">The Art of Winning in Team Fight Tactics</h2>
           <div className="flex flex-col w-96 border  rounded p-5 mt-4">
@@ -31,7 +33,7 @@ const Home: NextPage = () => {
               Join the Tactify community today and take your TFT game to the next level!
             </p>
           </div>
-        </div>
+        </div> */}
       </main>
     </>
   );
