@@ -15,92 +15,92 @@ export const champions = [
         },
         ashe: {
             name: "Ashe",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 1,
+            traits: ["Sureshot", "LaserCorps"],
             img: "champions/ashe.png"
         },
         aurelionsol: {
             name: "Aurelion Sol",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 4,
+            traits: ["Threat"],
             img: "champions/aurelionsol.png"
         },
         belveth: {
             name: "Belveth",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 4,
+            traits: ["Threat"],
             img: "champions/belveth.png"
         },
         blitzcrank: {
             name: "Blitzcrank",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 1,
+            traits: ["Brawler", "Admin"],
             img: "champions/blitzcrank.png"
         },
         camille: {
             name: "Camille",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Renegade", "Admin"],
             img: "champions/camille.png"
         },
         draven: {
             name: "Draven",
-            cost: 3,
-            traits: ["Ox Force", "Mascot", "Aegis"],
+            cost: 2,
+            traits: ["Ace", "Mecha: PRIME"],
             img: "champions/draven.png"
         },
         ekko: {
             name: "Ekko",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 4,
+            traits: ["Aegis", "Prankster", "Star Guardian"],
             img: "champions/ekko.png"
         },
         ezreal: {
             name: "Ezreal",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Underground", "Parallel", "Quickdraw"],
             img: "champions/ezreal.png"
         },
         fiddlesticks: {
             name: "Fiddlesticks",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 5,
+            traits: ["Threat"],
             img: "champions/fiddlesticks.png"
         },
         fiora: {
             name: "Fiora",
             cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            traits: ["Ox Force", "Duellist"],
             img: "champions/fiora.png"
         },
         gankplank: {
             name: "Gangplank",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 1,
+            traits: ["Supers", "Duelist"],
             img: "champions/gangplank.png"
         },
         garen: {
             name: "Garen",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 4,
+            traits: ["Mecha: PRIME", "Defender"],
             img: "champions/garen.png"
         },
         gnar: {
             name: "Gnar",
             cost: 3,
-            traits: ["Ox Force", "Mascot", "Aegis"],
+            traits: ["Gadgeteen", "Prankster"],
             img: "champions/gnar.png"
         },
         janna: {
             name: "Janna",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 5,
+            traits: ["Spellslinger", "Forecaster"],
             img: "champions/janna.png"
         },
         jax: {
             name: "Jax",
-            cost: 2,
-            traits: ["Ox Force", "GadgetTeen", "Spellslinger"],
+            cost: 3,
+            traits: ["Brawler", "Mecha: PRIME"],
             img: "champions/jax.png"
         },
         jhin: {
