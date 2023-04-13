@@ -9,7 +9,7 @@ function CreateCompPage() {
     return (
         <div>
             {/* <Navbar /> */}
-            <div className="flex justify-center md:mb-10 text-2xl md:text-6xl">
+            <div className="flex justify-center mb-2 md:mb-10 text-2xl md:text-6xl">
                 <h1>TACTIFY</h1>
             </div>
             <div className="grid place-items-center">
