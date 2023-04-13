@@ -1,6 +1,5 @@
 
 export const champions = [
-    
         {
             name: "Alistar",
             cost: 3,
