@@ -1,5 +1,11 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import ChampionsPool from "./ChampionsPool"
+import { champions } from "~/champions"
+import { BoardInfoPanel } from "./BoardInfoPanel"
+
+const allChampions = champions
+const championName = allChampions.map(champ => champ.name)
+
 
 function TilesMap() {
     const [tileMapValue, setTileMapValue] = useState({
@@ -32,26 +38,15 @@ function TilesMap() {
         d6: null,
         d7: null,
     })
-    const [selectedChampion, setSelectedChampion] = useState<string>()
-    
-    /* const names = champions.flatMap(obj => Object.keys(obj))
-    console.log(names) */
-    //const championNames = Object.values(champions[0]).map(champion => champion.name)
-
-    /* function checkForImg(e) {
-        if (e.tagName === "img") {
-            setSelectedChampion("")
-        }
-    } */
-    
+    const [selectedChampion, setSelectedChampion] = useState("")
     function getTileValue(key: string) {
         
         if (selectedChampion) {
             setTileMapValue((prevState) => ({
                 ...prevState,
-                [key]: selectedChampion
+                [key]: selectedChampion 
             }))
-            setSelectedChampion("")
+            setSelectedChampion("") 
         }
     }
         function clearBoard() {
@@ -95,7 +90,7 @@ function TilesMap() {
         })))
     }
     
-
+    let championsOnTheBoard: string | null;
     
    
     return (
@@ -103,12 +98,19 @@ function TilesMap() {
             <div className="grid grid-cols-7 gap-4 mb-4 p-4" >
                 {Object.entries(tileMapValue).map(([key, value], idx) => {
                     let valueText = value + ""
+                    championsOnTheBoard = value
+                    const traits: string[] | undefined = champions.find(obj => obj.name === championsOnTheBoard)?.traits
                     let displayImage = valueText.endsWith(".png")
+                   
 
-                    
+
                     return (
                         <div key={key} className="">
-                             <div onClick={(e) =>{
+                            {/* <div className="relative">
+                                <BoardInfoPanel traits={traits} />
+                            </div> */}
+                            
+                             <div onClick={() =>{
                                 getTileValue(key)
                              } } className="relative md:w-20 md:h-20 w-10 h-10 bg-orange-300 border-amber-500 border-4 flex justify-center items-center ">
                                 
@@ -116,18 +118,21 @@ function TilesMap() {
                                     if (e.currentTarget.tagName === "IMG") {
                                         removeClickedTileImage(key)
                                     }
+
                                 }} src={`champions/${value.toString().replace(/\s/g, "")}.png`} /> : <></> }
                                 
-                           
+                                
                                 <div className="absolute -top-4 -left-3  bg-red-400 text-xs md:text-base rounded-full md:w-10 md:h-10 w-5 h-5 items-center justify-center flex text-white">
                                     {key}
                                 </div>
-                                {displayImage ? <img src={value} /> : <></>}
+                                {/* {displayImage ? <img src={value} /> : <></>} */} {/* Don't remember why I added this.. */}
+                                
                              </div>
                         </div>
                     )
                 })}
             </div>
+            
             <button disabled={Object.values(tileMapValue).every(value => value === null)}  className="bg-orange-400 hover:bg-orange-200 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-white rounded px-3 py-2 text-orange-900 mb-10" onClick={clearBoard}>Clear board</button>
 
             

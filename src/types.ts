@@ -1,5 +1,6 @@
 export type TChampion = {
-  titles?: string[];
+  name?: string;
+  cost: number;
   images?: string;
   tags?: string[];
 }
