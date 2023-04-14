@@ -116,8 +116,8 @@ function ChampionsPool(props: {
   }
 
   return (
-    <div className="border">
-      <div className="flex min-w-fit md:mb-10">
+    <div className="">
+      <div className="flex min-w-fit border-2 md:mb-10">
         <div className="">
           <div className="relative z-10 flex justify-between border-b-2 p-2 md:justify-normal">
             <div className="mr-2 flex">
