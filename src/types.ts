@@ -3,5 +3,4 @@ export type TChampion = {
   cost: number;
   images?: string;
   traits?: string[];
-}
-
+};
