@@ -3,11 +3,37 @@ import ChampionsPool from './ChampionsPool';
 import { champions } from '~/champions';
 import { BoardInfoPanel } from './BoardInfoPanel';
 
-const allChampions = champions;
-const championName = allChampions.map((champ) => champ.name);
-
 function TilesMap() {
-  const [tileMapValue, setTileMapValue] = useState({
+  const [tileMapValue, setTileMapValue] = useState<{
+    a1: string | null;
+    a2: string | null;
+    a3: string | null;
+    a4: string | null;
+    a5: string | null;
+    a6: string | null;
+    a7: string | null;
+    b1: string | null;
+    b2: string | null;
+    b3: string | null;
+    b4: string | null;
+    b5: string | null;
+    b6: string | null;
+    b7: string | null;
+    c1: string | null;
+    c2: string | null;
+    c3: string | null;
+    c4: string | null;
+    c5: string | null;
+    c6: string | null;
+    c7: string | null;
+    d1: string | null;
+    d2: string | null;
+    d3: string | null;
+    d4: string | null;
+    d5: string | null;
+    d6: string | null;
+    d7: string | null;
+  }>({
     a1: null,
     a2: null,
     a3: null,
@@ -46,38 +72,6 @@ function TilesMap() {
       }));
       setSelectedChampion('');
     }
-  }
-  function clearBoard() {
-    setTileMapValue({
-      a1: null,
-      a2: null,
-      a3: null,
-      a4: null,
-      a5: null,
-      a6: null,
-      a7: null,
-      b1: null,
-      b2: null,
-      b3: null,
-      b4: null,
-      b5: null,
-      b6: null,
-      b7: null,
-      c1: null,
-      c2: null,
-      c3: null,
-      c4: null,
-      c5: null,
-      c6: null,
-      c7: null,
-      d1: null,
-      d2: null,
-      d3: null,
-      d4: null,
-      d5: null,
-      d6: null,
-      d7: null,
-    });
   }
 
   function removeClickedTileImage(key: string) {
@@ -135,19 +129,14 @@ function TilesMap() {
           );
         })}
       </div>
-
-      <button
-        disabled={Object.values(tileMapValue).every((value) => value === null)}
-        className="mb-10 rounded bg-orange-400 px-3 py-2 text-orange-900 hover:bg-orange-200 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-white"
-        onClick={clearBoard}
-      >
-        Clear board
-      </button>
-
-      <ChampionsPool
-        selectedChampion={selectedChampion}
-        setSelectedChampion={setSelectedChampion}
-      />
+      <div className="p-2">
+        <ChampionsPool
+          selectedChampion={selectedChampion}
+          setSelectedChampion={setSelectedChampion}
+          setTileMapValue={setTileMapValue} //! fix
+          tileMapValue={tileMapValue}
+        />
+      </div>
     </>
   );
 }
