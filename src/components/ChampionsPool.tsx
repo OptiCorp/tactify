@@ -275,16 +275,8 @@ function ChampionsPool(props: {
                           src={champ.img}
                         />
                       </div>
-                      <div
-                        style={{
-                          maxWidth: '70px',
-                          whiteSpace: 'nowrap',
-                          textOverflow: 'ellipsis',
-                          overflow: 'hidden',
-                          textAlign: 'center',
-                          letterSpacing: '0.025rem',
-                        }}
-                      >
+                      <div className="max-w-[50px] truncate  text-center tracking-wide">
+                        {/* show full text on hover, add this to div: hover:max-w-none hover:overflow-visible hover:whitespace-normal */}
                         {champ.name}
                       </div>
                     </div>
