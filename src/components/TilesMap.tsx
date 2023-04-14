@@ -92,13 +92,13 @@ function TilesMap() {
   return (
     <>
       <div className="mb-4 grid grid-cols-7 gap-4 p-4">
-        {Object.entries(tileMapValue).map(([key, value], idx) => {
-          let valueText = value + '';
+        {Object.entries(tileMapValue).map(([key, value]) => {
+          const valueText = value + '';
           championsOnTheBoard = value;
           const traits: string[] | undefined = champions.find(
             (obj) => obj.name === championsOnTheBoard
           )?.traits;
-          let displayImage = valueText.endsWith('.png');
+          const displayImage = valueText.endsWith('.png');
 
           return (
             <div key={key} className="">
