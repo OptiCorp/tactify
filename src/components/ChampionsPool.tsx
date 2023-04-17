@@ -1,9 +1,10 @@
-import DeleteIcon from '@mui/icons-material/Delete';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { champions } from '~/champions';
 import ChampionInfoCard from './ChampionInfoCard';
 import { TChampion } from '~/types';
-import { useFloating, useHover, useInteractions } from '@floating-ui/react';
+/* import { useFloating, useHover, useInteractions } from '@floating-ui/react'; */
+import DeleteIcon from '@mui/icons-material/Delete';
+import Portal from './Portal';
 
 type SelectedType = 'cost' | 'search' | 'name';
 
@@ -47,40 +48,10 @@ function ChampionsPool(props: {
   const [hoveredChamp, setHoveredChamp] = useState<TChampion | undefined>();
   const [selectedSorting, setSelectedSorting] = useState<SelectedType>('cost');
   const [search, setSearch] = useState('');
-  const [isHovering, setIsHovering] = useState(false);
-  const {
-    x,
-    y,
-    strategy,
-    refs,
-    context: context,
-  } = useFloating({
-    open: isHovering,
-    onOpenChange: setIsHovering,
-  });
-  const hover = useHover(context);
-  const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
+
   const uniqueCosts = [
     ...new Set(champions.map((champion) => champion.cost)),
   ].sort();
-
-  function handleHovering(champion: TChampion) {
-    setHoveredChamp(champion);
-    setIsHovering(true);
-  }
-
-  function handleNotHovering() {
-    setHoveredChamp(undefined);
-    setIsHovering(false);
-  }
-
-  function handleSortByName() {
-    setSelectedSorting('name');
-  }
-
-  function handleSortByCost() {
-    setSelectedSorting('cost');
-  }
 
   function clearBoard() {
     props.setTileMapValue({
@@ -114,6 +85,22 @@ function ChampionsPool(props: {
       d7: null,
     });
   }
+  function handleHovering(champion: TChampion) {
+    setHoveredChamp(champion);
+  }
+
+  function handleNotHovering() {
+    setHoveredChamp(undefined);
+  }
+
+  function handleSortByName() {
+    setSelectedSorting('name');
+  }
+
+  function handleSortByCost() {
+    setSelectedSorting('cost');
+  }
+
   const sortedByName = [...champions].sort((a, b) =>
     a.name > b.name ? 1 : -1
   );
@@ -132,14 +119,10 @@ function ChampionsPool(props: {
   }
 
   return (
-    <div className="">
-      <div className="flex min-w-fit border-2 md:mb-10">
-        <div className="">
-          <div
-            ref={refs.setReference}
-            {...getReferenceProps()}
-            className="relative z-10 flex justify-between border-b-2 p-2 md:justify-normal"
-          >
+    <div className="w-[375px] md:min-w-[750px]">
+      <div className="flex  border-2 md:mb-10">
+        <div className="w-full">
+          <div className="w- relative z-10 flex justify-between border-b-2 p-2 md:justify-normal">
             <div className="mr-2 flex">
               <form
                 onSubmit={(e) => e.preventDefault()}
@@ -214,7 +197,6 @@ function ChampionsPool(props: {
                 >
                   <div className="flex">
                     <DeleteIcon />
-                    {/* <span>Erase current board</span> */}
                   </div>
                 </button>
 
@@ -258,20 +240,14 @@ function ChampionsPool(props: {
                   >
                     <div className="z-50  hidden md:block">
                       {hoveredChamp === champ && (
-                        <div
-                          ref={refs.setFloating}
-                          style={{
-                            position: strategy,
-                            top: y ?? 0,
-                            left: x ?? 0,
-                          }}
-                          {...getFloatingProps()}
-                        >
-                          <ChampionInfoCard
-                            championCost={champ.cost}
-                            championName={champ.name}
-                            championTraits={champ.traits}
-                          />
+                        <div>
+                          <Portal>
+                            <ChampionInfoCard
+                              championCost={champ.cost}
+                              championName={champ.name}
+                              championTraits={champ.traits}
+                            />
+                          </Portal>
                         </div>
                       )}
                     </div>
