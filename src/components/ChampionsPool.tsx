@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { champions } from '~/champions';
 import ChampionInfoCard from './ChampionInfoCard';
 import { TChampion } from '~/types';
-import Portal from './Portal';
+import { useFloating, useHover, useInteractions } from '@floating-ui/react';
 
 type SelectedType = 'cost' | 'search' | 'name';
 
@@ -47,16 +47,31 @@ function ChampionsPool(props: {
   const [hoveredChamp, setHoveredChamp] = useState<TChampion | undefined>();
   const [selectedSorting, setSelectedSorting] = useState<SelectedType>('cost');
   const [search, setSearch] = useState('');
+  const [isHovering, setIsHovering] = useState(false);
+  const {
+    x,
+    y,
+    strategy,
+    refs,
+    context: context,
+  } = useFloating({
+    open: isHovering,
+    onOpenChange: setIsHovering,
+  });
+  const hover = useHover(context);
+  const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
   const uniqueCosts = [
     ...new Set(champions.map((champion) => champion.cost)),
   ].sort();
 
   function handleHovering(champion: TChampion) {
     setHoveredChamp(champion);
+    setIsHovering(true);
   }
 
   function handleNotHovering() {
     setHoveredChamp(undefined);
+    setIsHovering(false);
   }
 
   function handleSortByName() {
@@ -120,7 +135,11 @@ function ChampionsPool(props: {
     <div className="">
       <div className="flex min-w-fit border-2 md:mb-10">
         <div className="">
-          <div className="relative z-10 flex justify-between border-b-2 p-2 md:justify-normal">
+          <div
+            ref={refs.setReference}
+            {...getReferenceProps()}
+            className="relative z-10 flex justify-between border-b-2 p-2 md:justify-normal"
+          >
             <div className="mr-2 flex">
               <form
                 onSubmit={(e) => e.preventDefault()}
@@ -237,19 +256,25 @@ function ChampionsPool(props: {
                     }}
                     onClick={() => props.setSelectedChampion(champ.name)}
                   >
-                    {/* <div className="absolute -top-40 hidden md:block"> */}
-
-                    <Portal>
+                    <div className="z-50  hidden md:block">
                       {hoveredChamp === champ && (
-                        <ChampionInfoCard
-                          championCost={champ.cost}
-                          championName={champ.name}
-                          championTraits={champ.traits}
-                        />
+                        <div
+                          ref={refs.setFloating}
+                          style={{
+                            position: strategy,
+                            top: y ?? 0,
+                            left: x ?? 0,
+                          }}
+                          {...getFloatingProps()}
+                        >
+                          <ChampionInfoCard
+                            championCost={champ.cost}
+                            championName={champ.name}
+                            championTraits={champ.traits}
+                          />
+                        </div>
                       )}
-                    </Portal>
-
-                    {/* </div> */}
+                    </div>
 
                     <div className="flex flex-col items-center  text-xs">
                       <div
@@ -275,7 +300,9 @@ function ChampionsPool(props: {
                                 ? '.20'
                                 : '100',
                           }}
-                          onMouseOver={() => handleHovering(champ)}
+                          onMouseOver={() => {
+                            handleHovering(champ);
+                          }}
                           onMouseOut={handleNotHovering}
                           className={`h-8 w-8 rounded-full`}
                           src={champ.img}
