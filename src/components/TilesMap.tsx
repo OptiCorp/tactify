@@ -85,49 +85,50 @@ function TilesMap() {
 
   return (
     <>
-      <div className="mb-4 grid grid-cols-7 gap-4 p-4">
-        {Object.entries(tileMapValue).map(([key, value]) => {
-          const valueText = value + '';
-          championsOnTheBoard = value;
-          const traits: string[] | undefined = champions.find(
-            (obj) => obj.name === championsOnTheBoard
-          )?.traits;
-          const displayImage = valueText.endsWith('.png');
+      <div className="flex ">
+        <div className="w-1/4">
+          <BoardInfoPanel tileMapValue={tileMapValue} />
+        </div>
+        <div className="mb-4 grid w-3/4 grid-cols-7 gap-4 p-4">
+          {Object.entries(tileMapValue).map(([key, value]) => {
+            championsOnTheBoard = value;
+            const traits: string[] | undefined = champions.find(
+              (obj) => obj.name === championsOnTheBoard
+            )?.traits;
 
-          return (
-            <div key={key} className="">
-              {/* <div className="relative">
-                                <BoardInfoPanel traits={traits} />
-                            </div> */}
-
-              <div
-                onClick={() => {
-                  getTileValue(key);
-                }}
-                className="relative flex h-10 w-10 items-center justify-center border-4 border-amber-500 bg-orange-300 md:h-20 md:w-20 "
-              >
-                {value ? (
-                  <img
-                    className="cursor-pointer"
-                    onClick={(e) => {
-                      if (e.currentTarget.tagName === 'IMG') {
-                        removeClickedTileImage(key);
-                      }
-                    }}
-                    src={`champions/${value.toString().replace(/\s/g, '')}.png`}
-                  />
-                ) : (
-                  <></>
-                )}
-                <div className="absolute -left-3 -top-4  flex h-5 w-5 items-center justify-center rounded-full bg-red-400 text-xs text-white md:h-10 md:w-10 md:text-base">
+            return (
+              <div key={key} className="">
+                <div
+                  onClick={() => {
+                    getTileValue(key);
+                  }}
+                  className="relative flex h-10 w-10 items-center justify-center border-4 border-amber-500 bg-orange-300 md:h-14 md:w-14 "
+                >
+                  {value ? (
+                    <img
+                      className="cursor-pointer"
+                      onClick={(e) => {
+                        if (e.currentTarget.tagName === 'IMG') {
+                          removeClickedTileImage(key);
+                        }
+                      }}
+                      src={`champions/${value
+                        .toString()
+                        .replace(/\s/g, '')}.png`}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                  {/* <div className="absolute -left-3 -top-4  flex h-5 w-5 items-center justify-center rounded-full bg-red-400 text-xs text-white md:h-10 md:w-10 md:text-base">
                   {key}
+                </div> */}
+                  {/* {displayImage ? <img src={value} /> : <></>} */}{' '}
+                  {/* Don't remember why I added this.. */}
                 </div>
-                {/* {displayImage ? <img src={value} /> : <></>} */}{' '}
-                {/* Don't remember why I added this.. */}
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       <div className="p-2">
         <ChampionsPool
