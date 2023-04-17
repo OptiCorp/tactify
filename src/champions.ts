@@ -8,7 +8,7 @@ export const champions = [
   {
     name: 'Annie',
     cost: 2,
-    traits: ['Ox Force', 'GadgetTeen', 'Spellslinger'],
+    traits: ['Ox Force', 'Gadgeteen', 'Spellslinger'],
     img: 'champions/annie.png',
   },
   {
@@ -68,7 +68,7 @@ export const champions = [
   {
     name: 'Fiora',
     cost: 2,
-    traits: ['Ox Force', 'Duellist'],
+    traits: ['Ox Force', 'Duelist'],
     img: 'champions/fiora.png',
   },
   {
@@ -122,7 +122,7 @@ export const champions = [
   {
     name: 'Kayle',
     cost: 1,
-    traits: ['Undederground', 'Duelist'],
+    traits: ['Underground', 'Duelist'],
     img: 'champions/kayle.png',
   },
   {
@@ -200,7 +200,7 @@ export const champions = [
   {
     name: 'Nilah',
     cost: 3,
-    traits: ['Star Gurdian', 'Duelist'],
+    traits: ['Star Guardian', 'Duelist'],
     img: 'champions/nilah.png',
   },
   {
@@ -291,7 +291,7 @@ export const champions = [
     name: 'Twisted Fate',
     cost: 4,
     traits: ['InfiniTeam', 'Duelist', 'Spellslinger'],
-    img: 'champions/twisted-fate.png',
+    img: 'champions/twistedfate.png',
   },
   {
     name: 'Ultimate Ezreal',
