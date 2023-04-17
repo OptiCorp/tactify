@@ -15,7 +15,7 @@ function Portal(props: PortalProps) {
   }, []);
   return mounted && ref.current
     ? createPortal(
-        <div className="absolute right-96 top-[22rem] hidden md:block">
+        <div className=" h-full w-full" style={{}}>
           {props.children}
         </div>,
         ref.current
