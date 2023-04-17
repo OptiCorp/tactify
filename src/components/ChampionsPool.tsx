@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { champions } from '~/champions';
 import ChampionInfoCard from './ChampionInfoCard';
 import { TChampion } from '~/types';
+import Portal from './Portal';
 
 type SelectedType = 'cost' | 'search' | 'name';
 
@@ -236,7 +237,9 @@ function ChampionsPool(props: {
                     }}
                     onClick={() => props.setSelectedChampion(champ.name)}
                   >
-                    <div className="absolute -top-40 hidden md:block">
+                    {/* <div className="absolute -top-40 hidden md:block"> */}
+
+                    <Portal>
                       {hoveredChamp === champ && (
                         <ChampionInfoCard
                           championCost={champ.cost}
@@ -244,7 +247,10 @@ function ChampionsPool(props: {
                           championTraits={champ.traits}
                         />
                       )}
-                    </div>
+                    </Portal>
+
+                    {/* </div> */}
+
                     <div className="flex flex-col items-center  text-xs">
                       <div
                         className={`rounded-full border-4 ${
