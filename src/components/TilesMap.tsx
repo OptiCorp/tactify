@@ -85,16 +85,13 @@ function TilesMap() {
 
   return (
     <>
-      <div className="flex ">
+      <div className="flex flex-col  md:flex-row">
         <div className="w-1/4">
           <BoardInfoPanel tileMapValue={tileMapValue} />
         </div>
         <div className="mb-4 grid w-3/4 grid-cols-7 gap-4 p-4">
           {Object.entries(tileMapValue).map(([key, value]) => {
             championsOnTheBoard = value;
-            const traits: string[] | undefined = champions.find(
-              (obj) => obj.name === championsOnTheBoard
-            )?.traits;
 
             return (
               <div key={key} className="">
