@@ -4,7 +4,7 @@ function ChampionInfoCard(props: {
   championTraits: string[];
 }) {
   return (
-    <div className="relative flex h-36 w-48 flex-col overflow-hidden rounded-t border bg-orange-300 text-white">
+    <div className="relative flex h-36 w-48 flex-col overflow-hidden rounded-t border bg-orange-300 text-white shadow-lg drop-shadow-lg">
       <div className="mb-0 pl-2 pt-2">
         <div className="flex flex-col">
           {props.championTraits.map((trait) => (
