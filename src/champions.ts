@@ -62,7 +62,7 @@ export const champions = [
   {
     name: 'Fiddlesticks',
     cost: 5,
-    traits: ['Threat'],
+    traits: ['Threat', 'Corrupted'],
     img: 'champions/fiddlesticks.png',
   },
   {
