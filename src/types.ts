@@ -10,7 +10,9 @@ export type CharacterType = {
   image: string;
   gender: string;
   species: string;
-  origin: string;
+  origin: {
+    name: string;
+  };
   cost: Cost;
   id?: number;
 };
