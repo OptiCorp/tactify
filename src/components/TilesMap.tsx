@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import ChampionsPool from './ChampionsPool';
-import { champions } from '~/champions';
+import { champions } from '../champions';
 import { BoardInfoPanel } from './BoardInfoPanel';
 
-function TilesMap() {
+function TilesMap({ characterData }) {
   const [tileMapValue, setTileMapValue] = useState<{
     a1: string | null;
     a2: string | null;
@@ -85,11 +85,13 @@ function TilesMap() {
 
   return (
     <>
-      <div className="flex flex-col  md:flex-row">
-        <div className="w-1/4">
-          <BoardInfoPanel tileMapValue={tileMapValue} />
+      <div className="flex flex-col items-center md:flex-row">
+        <div className="">
+          <div className="w-1/4">
+            <BoardInfoPanel tileMapValue={tileMapValue} />
+          </div>
         </div>
-        <div className="mb-4 grid w-3/4 grid-cols-7 gap-4 p-4">
+        <div className="grid w-[80%] grid-cols-7 gap-4 p-4">
           {Object.entries(tileMapValue).map(([key, value]) => {
             championsOnTheBoard = value;
 
