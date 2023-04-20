@@ -32,13 +32,13 @@ export const champions = [
   {
     name: 'Blitzcrank',
     cost: 1,
-    traits: ['Brawler', 'Admin'],
+    traits: ['Brawler', 'A.D.M.I.N.'],
     img: 'champions/blitzcrank.png',
   },
   {
     name: 'Camille',
     cost: 2,
-    traits: ['Renegade', 'Admin'],
+    traits: ['Renegade', 'A.D.M.I.N.'],
     img: 'champions/camille.png',
   },
   {
@@ -128,7 +128,7 @@ export const champions = [
   {
     name: 'LeBlanc',
     cost: 3,
-    traits: ['Admin', 'Hacker', 'Spellslinger'],
+    traits: ['A.D.M.I.N.', 'Hacker', 'Spellslinger'],
     img: 'champions/leblanc.png',
   },
   {
@@ -332,7 +332,7 @@ export const champions = [
   {
     name: 'Warwick',
     cost: 4,
-    traits: ['Admin', 'LaserCrops', 'Brawler'],
+    traits: ['A.D.M.I.N.', 'LaserCorps', 'Brawler'],
     img: 'champions/warwick.png',
   },
   {
