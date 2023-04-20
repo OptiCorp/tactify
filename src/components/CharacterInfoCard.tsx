@@ -19,7 +19,21 @@ function CharacterInfoCard({
             backgroundImage: `url(${characters.image})`,
             backgroundSize: 'cover',
           }}
-          className="relative flex h-36 w-72 flex-col overflow-hidden rounded-t border bg-orange-300  text-white shadow-lg drop-shadow-lg"
+          className={`relative flex h-36 w-72 flex-col overflow-hidden rounded-t border ${
+            characters.cost === 1
+              ? 'border-gray-500 shadow-gray-200'
+              : characters.cost === 2
+              ? 'border-green-500 shadow-green-200'
+              : characters.cost === 3
+              ? 'border-blue-500 shadow-blue-200'
+              : characters.cost === 4
+              ? 'border-purple-500 shadow-purple-200'
+              : characters.cost === 5
+              ? 'border-teal-500 shadow-teal-200'
+              : characters.cost === 6
+              ? 'border-orange-500 shadow-orange-200'
+              : ''
+          } bg-orange-300  text-white shadow-lg  drop-shadow-lg`}
         >
           <div className="absolute right-0 rounded-bl-sm bg-red-500 p-1 font-bold opacity-70 ">
             <span>{characters.id}</span>
@@ -36,7 +50,21 @@ function CharacterInfoCard({
             </div>
             <div
               className="absolute bottom-0 w-full bg-amber-500 p-2"
-              style={{ backgroundColor: 'rgba(255, 191, 0, 0.7)' }}
+              style={
+                characters.cost === 1
+                  ? { backgroundColor: 'rgba(107, 114, 128, .7)' }
+                  : characters.cost === 2
+                  ? { backgroundColor: 'rgba(34, 197, 94, .7)' }
+                  : characters.cost === 3
+                  ? { backgroundColor: 'rgba(59, 130, 246, .7)' }
+                  : characters.cost === 4
+                  ? { backgroundColor: 'rgba(168, 85, 247, .7)' }
+                  : characters.cost === 5
+                  ? { backgroundColor: 'rgba(20, 184, 166, .7)' }
+                  : characters.cost === 6
+                  ? { backgroundColor: 'rgba(249, 115, 22, .7)' }
+                  : {}
+              }
             >
               <span
                 /* style={{ backgroundColor: 'rgba(255,255,255,0.5)' }} */
