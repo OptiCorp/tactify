@@ -6,7 +6,7 @@ import { TChampion } from '~/types';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Portal from './Portal';
 
-type SelectedType = 'cost' | 'search' | 'name';
+export type SelectedType = 'cost' | 'search' | 'name';
 
 function ChampionsPool(props: {
   selectedChampion: string;
@@ -229,7 +229,7 @@ function ChampionsPool(props: {
               return (
                 <div className="relative">
                   <div
-                    className="flex cursor-pointer flex-col items-center "
+                    className="flex cursor-pointer flex-col items-center"
                     style={{
                       fontWeight:
                         props.selectedChampion === champ.name
