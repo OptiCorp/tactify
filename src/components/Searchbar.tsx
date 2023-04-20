@@ -1,6 +1,13 @@
-function Searchbar(props) {
+import { Dispatch, SetStateAction } from 'react';
+import { SelectedType } from '../types';
+
+function Searchbar(props: {
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
+  setSelectedSorting: Dispatch<SetStateAction<SelectedType>>;
+}) {
   return (
-    <form className={`flex items-center`}>
+    <form onSubmit={(e) => e.preventDefault()} className={`flex items-center`}>
       <label className="sr-only">Search</label>
       <div className="relative w-full">
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -15,12 +22,17 @@ function Searchbar(props) {
           </svg>
         </div>
         <input
-          onChange={(e) => console.log(e.target.value)}
+          onChange={(e) => {
+            props.setSearch(e.target.value);
+            props.setSelectedSorting('search');
+            if (e.target.value.trim().length > 0) {
+              props.setSelectedSorting('search');
+            }
+          }}
           type="text"
           id="simple-search"
           className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-          placeholder="Search by Name or Trait"
-          required
+          placeholder="Search by Name"
         />
       </div>
     </form>
