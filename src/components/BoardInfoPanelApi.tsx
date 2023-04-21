@@ -7,27 +7,25 @@ function BoardInfoPanelApi({
   tileMapValue: object;
   characterData: CharacterType[];
 }) {
-  const speciesCount: Record<string, number> = {};
+  /* const speciesCount: Record<string, number> = {}; */
+  const uniqueSpecies: Record<string, Set<string>> = {};
 
-  //! Bug: duplicate characters on the board increments trait count
   for (const tile of Object.values(tileMapValue)) {
     if (tile) {
-      const characters = characterData.find(
-        (character) => character.image === tile
-      );
-      if (characters) {
-        const { species } = characters;
-        if (speciesCount[species]) {
-          speciesCount[species]++;
-        } else {
-          speciesCount[species] = 1;
+      const character = characterData.find((char) => char.image === tile);
+      if (character) {
+        const { species, image } = character;
+        if (!uniqueSpecies[species]) {
+          uniqueSpecies[species] = new Set();
+          console.log(uniqueSpecies[species]);
         }
+        uniqueSpecies[species]?.add(image);
       }
     }
   }
 
-  const sortedSpeciesByCount = Object.entries(speciesCount)
-    .map(([species, count]) => ({ species, count }))
+  const sortedSpeciesByCount = Object.entries(uniqueSpecies)
+    .map(([species, characters]) => ({ species, count: characters.size }))
     .sort((a, b) => b.count - a.count);
 
   return (
