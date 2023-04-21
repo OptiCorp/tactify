@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useState } from 'react';
-import { CharacterType } from '../types';
+import { CharacterType, Props } from '../types';
 
 function CharacterPool({
   sortedCharacters,
@@ -10,7 +10,7 @@ function CharacterPool({
 }: {
   sortedCharacters: CharacterType[];
   onSelectImage: (image: string) => void;
-  selectedImage: string;
+  selectedImage: [];
   setHoveredCharacter: Dispatch<SetStateAction<null | string>>;
 }) {
   const [clickedCharacter, setClickedCharacter] = useState<string | null>(null);
@@ -23,7 +23,7 @@ function CharacterPool({
   }
   return (
     <div>
-      <div className="grid max-h-56 grid-cols-4 gap-4 overflow-auto border  p-4  md:max-h-96 md:grid-cols-12 md:gap-4">
+      <div className="grid max-h-52 min-w-[338px] grid-cols-4 gap-4 overflow-auto border p-4  md:min-h-fit md:min-w-[750px]  md:grid-cols-8 md:gap-4 lg:min-h-[250px] lg:min-w-[978px] lg:grid-cols-12 2xl:min-h-[700px]">
         {sortedCharacters.map(({ name, image, cost }) => {
           const currentClickedImage =
             clickedCharacter === name && selectedImage.includes(image);
