@@ -7,7 +7,6 @@ function BoardInfoPanelApi({
   tileMapValue: object;
   characterData: CharacterType[];
 }) {
-  /* const speciesCount: Record<string, number> = {}; */
   const uniqueSpecies: Record<string, Set<string>> = {};
 
   for (const tile of Object.values(tileMapValue)) {
@@ -17,7 +16,6 @@ function BoardInfoPanelApi({
         const { species, image } = character;
         if (!uniqueSpecies[species]) {
           uniqueSpecies[species] = new Set();
-          console.log(uniqueSpecies[species]);
         }
         uniqueSpecies[species]?.add(image);
       }
