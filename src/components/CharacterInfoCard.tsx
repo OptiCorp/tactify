@@ -14,12 +14,16 @@ function CharacterInfoCard({
   return (
     <>
       {characters && (
+        /* 'linear-gradient(to top left, transparent, black)', tried to add some gradient to make white text show better over bg-img
+         */
         <div
           style={{
-            backgroundImage: `url(${characters.image})`,
+            backgroundImage: `url(${characters.image}) `,
             backgroundSize: 'cover',
+            backgroundPosition: 'left calc(100% - 95%)',
+            position: 'relative',
           }}
-          className={`relative flex h-36 w-72 flex-col overflow-hidden rounded-t border ${
+          className={`relative hidden h-36 w-72 flex-col overflow-hidden rounded-t border md:flex ${
             characters.cost === 1
               ? 'border-gray-500 shadow-gray-200'
               : characters.cost === 2
@@ -35,7 +39,7 @@ function CharacterInfoCard({
               : ''
           } bg-orange-300  text-white shadow-lg  drop-shadow-lg`}
         >
-          <div className="absolute right-0 rounded-bl-sm bg-red-500 p-1 font-bold opacity-70 ">
+          <div className="absolute right-0 rounded-bl-sm bg-red-500 p-1 font-bold opacity-100  ">
             <span>{characters.id}</span>
           </div>
 
@@ -43,7 +47,7 @@ function CharacterInfoCard({
             style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}
             className="flex h-full flex-col font-bold"
           >
-            <div className="flex flex-col p-2 text-sm text-neutral-900">
+            <div className="flex h-fit flex-col p-2 text-sm text-neutral-900">
               <span>Gender: {characters.gender}</span>
               <span>Specie: {characters.species}</span>
               <span>Origin: {characters.origin.name}</span>
