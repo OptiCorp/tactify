@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, useEffect, useState } from 'react';
 
 import { getData } from 'api';
 import { CharacterType, Cost, Props, SelectedType } from '../types';
@@ -7,6 +7,8 @@ import Searchbar from './Searchbar';
 import CharacterPool from './CharacterPool';
 import Portal from './Portal';
 import CharacterInfoCard from './CharacterInfoCard';
+import Button from './Button';
+import CharacterCost from './CharacterCost';
 
 const URL = 'https://rickandmortyapi.com/api/character?species=';
 const imageUrl =
@@ -45,7 +47,7 @@ function CharacterContainer() {
   const [selectedSorting, setSelectedSorting] = useState<SelectedType>('cost');
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<Props>();
+  const [selectedImage, setSelectedImage] = useState<Props>([]);
   const [hoveredCharacter, setHoveredCharacter] = useState<null | string>(null);
   const [tileMapValue, setTileMapValue] = useState({
     a1: null,
@@ -178,7 +180,7 @@ function CharacterContainer() {
 
   const isDisabled = Object.values(tileMapValue).every((val) => val === null);
   return (
-    <div className="flex flex-col items-center justify-center ">
+    <div className="flex flex-col items-center justify-center md:mt-10">
       <div
         className="flex gap-4 backdrop-blur-md"
         style={{
@@ -203,7 +205,7 @@ function CharacterContainer() {
           />
         )}
       </Portal>
-      <div className="p-10">
+      <div className="mt-8">
         <div className="relative flex border">
           <div className="w-48 p-2">
             <Searchbar
@@ -235,16 +237,25 @@ function CharacterContainer() {
               <label htmlFor="name">A-Z</label>
             </div>
           </div>
-          <div>
-            <button
-              className={`absolute right-4 top-[10%] rounded-sm border border-amber-500 bg-orange-300 bg-opacity-40 px-4 py-2 text-amber-500  hover:bg-opacity-20 ${
+          <div className="flex items-center">
+            {/* <button
+              className={`absolute right-4 top-[10%] hidden rounded-sm border border-amber-500 bg-orange-300 bg-opacity-40 px-4 py-2 text-amber-500 hover:bg-opacity-20  md:block ${
                 isDisabled ? 'cursor-not-allowed opacity-50' : ''
               }`}
               disabled={isDisabled}
               onClick={() => clearBoard()}
             >
               Clear Board
-            </button>
+            </button> */}
+            <div className="ml-4">
+              <CharacterCost characterData={characterData} />
+            </div>
+
+            {/* <Button
+              className="hidden md:block"
+              isDisabled={isDisabled}
+              clearBoard={clearBoard}
+            /> */}
           </div>
         </div>
         <div>
