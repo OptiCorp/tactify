@@ -1,7 +1,10 @@
 import { Dispatch, SetStateAction } from 'react';
 import { SelectedType } from '../types';
 
-function Searchbar(props: {
+function Searchbar({
+  setSearch,
+  setSelectedSorting,
+}: {
   search: string;
   setSearch: Dispatch<SetStateAction<string>>;
   setSelectedSorting: Dispatch<SetStateAction<SelectedType>>;
@@ -23,10 +26,10 @@ function Searchbar(props: {
         </div>
         <input
           onChange={(e) => {
-            props.setSearch(e.target.value);
-            props.setSelectedSorting('search');
+            setSearch(e.target.value);
+            setSelectedSorting('search');
             if (e.target.value.trim().length > 0) {
-              props.setSelectedSorting('search');
+              setSelectedSorting('search');
             }
           }}
           type="text"
