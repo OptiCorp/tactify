@@ -16,7 +16,7 @@ function Portal(props: PortalProps) {
   return mounted && ref.current
     ? createPortal(
         <div
-          className={`absolute left-[calc(50%-96px)] top-64 -translate-y-1/2`}
+          className={`absolute left-[calc(50%-156px)] top-64 -translate-y-1/2 md:left-[calc(50%-96px)] md:top-72`}
           style={{}}
         >
           {props.children}
