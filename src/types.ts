@@ -20,7 +20,7 @@ export type CharacterType = {
 export type SelectedType = 'cost' | 'name' | 'search';
 
 export type Props = {
-  selectedImage: string;
+  selectedImage?: string[];
   setSelectedImage: () => void;
 };
 
