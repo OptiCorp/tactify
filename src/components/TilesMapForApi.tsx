@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useState } from 'react';
 
 import { CharacterType, Props } from '../types';
 import BoardInfoPanelApi from './BoardInfoPanelApi';
+import TextType from './TextType';
 
 function TilesMapForApi({
   selectedImage,
@@ -9,12 +10,14 @@ function TilesMapForApi({
   setTileMapValue,
   tileMapValue,
   characterData,
+  showText,
 }: {
   selectedImage: Props;
   setSelectedImage: Dispatch<SetStateAction<string>>;
   setTileMapValue: Dispatch<SetStateAction<object>>;
   tileMapValue: object;
   characterData: CharacterType[];
+  showText: boolean;
 }) {
   function getTileValue(key: string) {
     if (selectedImage) {
@@ -35,8 +38,8 @@ function TilesMapForApi({
 
   return (
     <>
-      <div className="font-creepster relative z-10 flex flex-col items-center md:flex-row">
-        <div className="z-0 hidden select-none opacity-50 md:block">
+      <div className="relative z-10 flex flex-col items-center border border-amber-500 md:flex-row">
+        {/* <div className="z-0 hidden select-none opacity-50 md:block">
           {characterData.map(({ name, image }) => {
             if (name === 'Rick Sanchez') {
               return (
@@ -68,7 +71,13 @@ function TilesMapForApi({
               );
             }
           })}
-        </div>
+        </div> */}
+
+        {showText && (
+          <>
+            <TextType />
+          </>
+        )}
         <div className="z-50">
           <BoardInfoPanelApi
             tileMapValue={tileMapValue}
@@ -83,11 +92,11 @@ function TilesMapForApi({
                   onClick={() => {
                     getTileValue(key);
                   }}
-                  className="relative flex h-10 w-10 items-center justify-center border border-amber-500 bg-orange-300  bg-opacity-20 md:h-14 md:w-14"
+                  className="relative flex h-10 w-10 items-center justify-center border border-amber-500 bg-orange-300 bg-opacity-20  md:h-14 md:w-14 md:hover:brightness-125"
                 >
                   {value ? (
                     <img
-                      className="cursor-pointer"
+                      className="cursor-pointer "
                       onClick={(e) => {
                         if (e.currentTarget.tagName === 'IMG') {
                           removeClickedTileImage(key);
