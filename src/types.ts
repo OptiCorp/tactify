@@ -17,8 +17,6 @@ export type CharacterType = {
   id?: number;
 };
 
-export type SelectedType = 'cost' | 'name' | 'search';
-
 export type Props = {
   selectedImage?: string[];
   setSelectedImage: () => void;

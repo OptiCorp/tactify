@@ -28,15 +28,21 @@ function BoardInfoPanelApi({
 
   return (
     <div className=" h-20 w-44 overflow-y-auto  p-2 md:h-72  md:w-24 md:min-w-[165px]">
-      {sortedSpeciesByCount?.map(({ species, count }, idx) => (
-        <div
-          key={idx}
-          className=" mb-2 flex items-center gap-1  border border-amber-500 bg-orange-300 bg-opacity-20 p-2 text-xs font-bold text-amber-500"
-        >
-          <span>{count}</span>
-          <span className="w-[120px] truncate">{species}</span>
+      {sortedSpeciesByCount.length !== 0 ? (
+        sortedSpeciesByCount?.map(({ species, count }, idx) => (
+          <div
+            key={idx}
+            className=" mb-2 flex items-center gap-1  border border-amber-500 bg-orange-300 bg-opacity-20 p-2 text-xs font-bold text-amber-500"
+          >
+            <span>{count}</span>
+            <span className="w-[120px] truncate capitalize">{species}</span>
+          </div>
+        ))
+      ) : (
+        <div className="flex h-full items-center justify-center text-center text-xs  text-amber-500">
+          <p>Place characters on the board to see synergies</p>
         </div>
-      ))}
+      )}
     </div>
   );
 }
