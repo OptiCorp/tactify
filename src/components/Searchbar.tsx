@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react';
-import { SelectedType } from '../types';
 
 function Searchbar({
   setSearch,
@@ -10,7 +9,7 @@ function Searchbar({
   return (
     <form onSubmit={(e) => e.preventDefault()} className={`flex items-center`}>
       <label className="sr-only">Search</label>
-      <div className="relative w-full">
+      <div className="relative">
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <svg
             aria-hidden="true"
@@ -28,7 +27,7 @@ function Searchbar({
           }}
           type="text"
           id="simple-search"
-          className="block w-full  border border-amber-500 bg-[#FFF] p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+          className="block w-40  border-[2px] border-amber-500 bg-[#FFF] p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           placeholder="Search by Name"
         />
       </div>
