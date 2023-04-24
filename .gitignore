@@ -25,7 +25,7 @@ next-env.d.ts
 *.pem
 sketch.excalidraw
 championPool.txt
-
+rickTransparent.png
 # debug
 npm-debug.log*
 yarn-debug.log*

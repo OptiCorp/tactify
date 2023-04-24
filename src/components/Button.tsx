@@ -15,7 +15,7 @@ function Button({
       disabled={isDisabled}
       onClick={() => clearBoard()}
     >
-      clear board
+      Clear board
     </button>
   );
 }
