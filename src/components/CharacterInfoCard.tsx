@@ -25,21 +25,21 @@ function CharacterInfoCard({
           }}
           className={`relative hidden h-36 w-72 flex-col overflow-hidden rounded-t border md:flex ${
             characters.cost === 1
-              ? 'border-gray-500 shadow-gray-200'
+              ? 'border-gray-500 shadow-gray-700'
               : characters.cost === 2
-              ? 'border-green-500 shadow-green-200'
+              ? 'border-green-500 shadow-green-700'
               : characters.cost === 3
-              ? 'border-blue-500 shadow-blue-200'
+              ? 'border-blue-500 shadow-blue-700'
               : characters.cost === 4
-              ? 'border-purple-500 shadow-purple-200'
+              ? 'border-purple-500 shadow-purple-700'
               : characters.cost === 5
-              ? 'border-teal-500 shadow-teal-200'
+              ? 'border-teal-500 shadow-teal-700'
               : characters.cost === 6
-              ? 'border-orange-500 shadow-orange-200'
+              ? 'border-orange-500 shadow-orange-900'
               : ''
           } bg-orange-300  text-white shadow-lg  drop-shadow-lg`}
         >
-          <div className="absolute right-0 rounded-bl-sm bg-red-500 p-1 font-bold opacity-100  ">
+          <div className="absolute right-0 rounded-bl-md bg-red-500 p-1 font-bold opacity-100  ">
             <span>{characters.id}</span>
           </div>
 
