@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { CharacterType, Props } from '../types';
+import { CharacterType } from '../types';
 
 function CharacterPool({
   sortedCharacters,
@@ -12,11 +12,15 @@ function CharacterPool({
   sortedCharacters: CharacterType[];
   setSortedCharacters: Dispatch<SetStateAction<CharacterType[]>>;
   onSelectImage: (image: string) => void;
-  selectedImage: [];
+  selectedImage: string[] | undefined;
   setHoveredCharacter: Dispatch<SetStateAction<null | string>>;
   sortingType: boolean;
 }) {
   const [clickedCharacter, setClickedCharacter] = useState<string | null>(null);
+  const sortedByName = [...sortedCharacters].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const sortedByCost = [...sortedCharacters].sort((a, b) => a.cost - b.cost);
 
   function handleCharacterHover(character: string) {
     setHoveredCharacter(character);
@@ -25,13 +29,7 @@ function CharacterPool({
   function handleCharacterLeave() {
     setHoveredCharacter(null);
   }
-  const sortedByName = [...sortedCharacters].sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
-  const sortedByCost = [...sortedCharacters].sort((a, b) => a.cost - b.cost);
-  /*   useEffect(() => {
-    setSortedCharacters(sortedByCost);
-  }, [sortedCharacters]); */
+
   useEffect(() => {
     if (!sortingType) {
       setSortedCharacters(sortedByName);
@@ -42,7 +40,7 @@ function CharacterPool({
 
   return (
     <div className="">
-      <div className="grid max-h-52 min-h-[208px] min-w-[338px] grid-cols-4 gap-4 overflow-auto  border border-t-0 border-amber-500 bg-[#182e4c] p-4   text-white   backdrop-blur-md md:min-h-[262px]  md:min-w-[750px] md:grid-cols-8  md:gap-4 lg:min-w-[978px] lg:grid-cols-12">
+      <div className="grid max-h-52 min-h-[208px] min-w-[338px] grid-cols-4 gap-4 overflow-auto border border-t-0 border-amber-500 bg-[#22272e] p-4 text-white backdrop-blur-md md:min-h-[250px]  md:min-w-[750px] md:grid-cols-8  md:gap-4 lg:min-h-[250px] lg:min-w-[978px] lg:grid-cols-12">
         {sortedCharacters.map(({ name, image, cost }) => {
           const currentClickedImage =
             clickedCharacter === name && selectedImage.includes(image);
