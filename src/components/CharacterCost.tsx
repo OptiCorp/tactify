@@ -35,7 +35,7 @@ function CharacterCost({ characterData }: { characterData: CharacterType[] }) {
         <Portal>
           <div
             onClick={(e) => e.stopPropagation()}
-            className="rounded border-4 border-amber-500 bg-white  shadow-lg"
+            className="rounded border-2 border-amber-500 bg-[#182e4c] text-white shadow-lg"
           >
             <div className="border-b-2 border-amber-500">
               <div className="flex gap-2 p-2">
