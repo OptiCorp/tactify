@@ -122,7 +122,7 @@ function ChampionsPool(props: {
     <div className="w-[375px] md:min-w-[750px]">
       <div className="flex  border-2 md:mb-10">
         <div className="w-full">
-          <div className="w- relative z-10 flex justify-between border-b-2 p-2 md:justify-normal">
+          <div className="relative z-10 flex justify-between border-b-2 p-2 md:justify-normal">
             <div className="mr-2 flex">
               <form
                 onSubmit={(e) => e.preventDefault()}
