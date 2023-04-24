@@ -1,4 +1,4 @@
-import { Dispatch, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { getData } from 'api';
 import { CharacterType, Cost, Props, SelectedType } from '../types';
@@ -9,10 +9,28 @@ import Portal from './Portal';
 import CharacterInfoCard from './CharacterInfoCard';
 import Button from './Button';
 import CharacterCost from './CharacterCost';
+import TextType from './TextType';
+import { BarLoader, GridLoader } from 'react-spinners';
+import { object } from 'zod';
 
 const URL = 'https://rickandmortyapi.com/api/character?species=';
 const imageUrl =
   'https://cdnb.artstation.com/p/assets/images/images/013/464/345/large/aodhan-mc-nicholl-rick-morty-style-background-001-copy.jpg?1539713189';
+
+const costCasesMap = {
+  human: Cost.Human,
+  Alien: Cost.Alien,
+  unknown: Cost.unknown,
+  Animal: Cost.Animal,
+  Robot: Cost.Robot,
+  Mythological_Creature: Cost.Mythological,
+};
+// TODO: Implement this?
+/* function getCost(value: string): Cost {
+  const cost = costCasesMap[value];
+
+  return cost;
+} */
 
 function getCost(value: string): Cost {
   switch (value) {
@@ -44,7 +62,8 @@ createObject(28, 28); */
 
 function CharacterContainer() {
   const [characterData, setCharacterData] = useState<CharacterType[]>([]);
-  const [selectedSorting, setSelectedSorting] = useState<SelectedType>('cost');
+  const [sortedCharacters, setSortedCharacters] = useState<CharacterType[]>([]);
+  const [sortingType, setSortingType] = useState<boolean>(true);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState<Props>([]);
@@ -79,13 +98,14 @@ function CharacterContainer() {
     d6: null,
     d7: null,
   });
+  const isDisabled = Object.values(tileMapValue).every((val) => val === null);
 
-  function handleSortByName() {
-    setSelectedSorting('name');
-  }
+  const SortedBySearch = [...characterData].filter((character) =>
+    character.name.toLowerCase().includes(search.toLowerCase())
+  );
 
-  function handleSortByCost() {
-    setSelectedSorting('cost');
+  function handleSort() {
+    setSortingType(!sortingType);
   }
 
   function clearBoard() {
@@ -158,35 +178,24 @@ function CharacterContainer() {
       }
     }
     fetchData();
-    setLoading(false);
+
+    setTimeout(() => setLoading(false), 2000);
   }, []);
 
-  const sortedByName = [...characterData].sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
-  const sortedByCost = [...characterData].sort((a, b) => a.cost - b.cost);
+  useEffect(() => {
+    setSortedCharacters(SortedBySearch);
+  }, [search, characterData]);
 
-  const SortedBySearch = [...characterData].filter((character) =>
-    character.name.toLowerCase().includes(search.toLowerCase())
-  );
-  let sortedCharacters = characterData;
-  if (selectedSorting === 'cost') {
-    sortedCharacters = sortedByCost;
-  } else if (selectedSorting === 'name') {
-    sortedCharacters = sortedByName;
-  } else if (selectedSorting === 'search') {
-    sortedCharacters = SortedBySearch;
-  }
-
-  const isDisabled = Object.values(tileMapValue).every((val) => val === null);
   return (
     <div className="flex flex-col items-center justify-center md:mt-10">
       <div
-        className="flex gap-4 backdrop-blur-md"
+        className="flex gap-4"
         style={{
           backgroundImage: `url(${imageUrl})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
+          backgroundColor: '#fff',
+          backgroundBlendMode: 'multiply',
         }}
       >
         <TilesMapForApi
@@ -206,13 +215,9 @@ function CharacterContainer() {
         )}
       </Portal>
       <div className="mt-8">
-        <div className="relative flex border">
+        <div className="relative flex border border-b-0 border-amber-500 bg-[#182e4c] pb-2 text-sm text-white">
           <div className="w-48 p-2">
-            <Searchbar
-              search={search}
-              setSearch={setSearch}
-              setSelectedSorting={setSelectedSorting}
-            />
+            <Searchbar search={search} setSearch={setSearch} />
           </div>
           <div className="ml-2 flex flex-col items-center gap-2 md:flex-row">
             <div className="flex gap-2">
@@ -220,8 +225,8 @@ function CharacterContainer() {
                 type="radio"
                 id="cost"
                 name="sorting"
-                value={`cost`}
-                onChange={() => handleSortByCost()}
+                checked={sortingType}
+                onChange={() => handleSort()}
               />
               <label htmlFor="cost">Cost</label>
             </div>
@@ -229,10 +234,10 @@ function CharacterContainer() {
               <input
                 id="name"
                 type="radio"
-                value={'name'}
-                checked={selectedSorting === 'name'}
+                checked={!sortingType}
                 name="sorting"
-                onChange={() => handleSortByName()}
+                onChange={() => handleSort()}
+                className="border-[#0A2342]"
               />
               <label htmlFor="name">A-Z</label>
             </div>
@@ -251,22 +256,26 @@ function CharacterContainer() {
               <CharacterCost characterData={characterData} />
             </div>
 
-            {/* <Button
+            <Button
               className="hidden md:block"
               isDisabled={isDisabled}
               clearBoard={clearBoard}
-            /> */}
+            />
           </div>
         </div>
         <div>
           {loading ? (
-            <div>loading</div>
+            <div className="flex min-h-[208px] min-w-[338px] flex-col items-center justify-center border border-t-0 border-amber-500 bg-[#182e4c] md:min-w-[750px] lg:min-w-[978px]">
+              <BarLoader color="#F59E0B" />
+            </div>
           ) : (
             <CharacterPool
+              sortingType={sortingType}
               onSelectImage={(path: string) => setSelectedImage(path)}
               sortedCharacters={sortedCharacters}
               selectedImage={selectedImage}
               setHoveredCharacter={setHoveredCharacter}
+              setSortedCharacters={setSortedCharacters}
             />
           )}
         </div>

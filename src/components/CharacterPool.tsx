@@ -1,19 +1,23 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { CharacterType, Props } from '../types';
 
 function CharacterPool({
   sortedCharacters,
   onSelectImage,
   selectedImage,
-
+  sortingType,
+  setSortedCharacters,
   setHoveredCharacter,
 }: {
   sortedCharacters: CharacterType[];
+  setSortedCharacters: Dispatch<SetStateAction<CharacterType[]>>;
   onSelectImage: (image: string) => void;
   selectedImage: [];
   setHoveredCharacter: Dispatch<SetStateAction<null | string>>;
+  sortingType: boolean;
 }) {
   const [clickedCharacter, setClickedCharacter] = useState<string | null>(null);
+
   function handleCharacterHover(character: string) {
     setHoveredCharacter(character);
   }
@@ -21,18 +25,35 @@ function CharacterPool({
   function handleCharacterLeave() {
     setHoveredCharacter(null);
   }
+  const sortedByName = [...sortedCharacters].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const sortedByCost = [...sortedCharacters].sort((a, b) => a.cost - b.cost);
+  /*   useEffect(() => {
+    setSortedCharacters(sortedByCost);
+  }, [sortedCharacters]); */
+  useEffect(() => {
+    if (!sortingType) {
+      setSortedCharacters(sortedByName);
+    } else {
+      setSortedCharacters(sortedByCost);
+    }
+  }, [sortingType]);
+
   return (
-    <div>
-      <div className="grid max-h-52 min-w-[338px] grid-cols-4 gap-4 overflow-auto border p-4  md:min-h-fit md:min-w-[750px]  md:grid-cols-8 md:gap-4 lg:min-h-[250px] lg:min-w-[978px] lg:grid-cols-12 2xl:min-h-[700px]">
+    <div className="">
+      <div className="grid max-h-52 min-h-[208px] min-w-[338px] grid-cols-4 gap-4 overflow-auto  border border-t-0 border-amber-500 bg-[#182e4c] p-4   text-white   backdrop-blur-md md:min-h-[262px]  md:min-w-[750px] md:grid-cols-8  md:gap-4 lg:min-w-[978px] lg:grid-cols-12">
         {sortedCharacters.map(({ name, image, cost }) => {
           const currentClickedImage =
             clickedCharacter === name && selectedImage.includes(image);
 
           return (
-            <div key={name} className="max-w-[64px]">
+            <div key={name} className="max-h-[64px] max-w-[64px]">
               <div className="flex h-16 w-16 flex-col items-center">
                 <div
                   className={`rounded-full border-4 ${
+                    currentClickedImage && 'brightness-150'
+                  } ${
                     cost === 1
                       ? 'border-gray-500'
                       : cost === 2
