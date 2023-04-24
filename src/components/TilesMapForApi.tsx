@@ -12,8 +12,8 @@ function TilesMapForApi({
   characterData,
   showText,
 }: {
-  selectedImage: Props;
-  setSelectedImage: Dispatch<SetStateAction<string>>;
+  selectedImage: string | undefined;
+  setSelectedImage: Dispatch<SetStateAction<string | undefined>>;
   setTileMapValue: Dispatch<SetStateAction<object>>;
   tileMapValue: object;
   characterData: CharacterType[];
