@@ -27,7 +27,7 @@ function Searchbar({
           }}
           type="text"
           id="simple-search"
-          className="block w-40  border-[2px] border-amber-500 bg-[#FFF] p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+          className="block w-40  rounded-md border-[2px] border-amber-500 bg-[#FFF] p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           placeholder="Search by Name"
         />
       </div>
