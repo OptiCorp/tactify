@@ -12,7 +12,7 @@ function CharacterPool({
   sortedCharacters: CharacterType[];
   setSortedCharacters: Dispatch<SetStateAction<CharacterType[]>>;
   onSelectImage: (image: string) => void;
-  selectedImage: string[] | undefined;
+  selectedImage: string[];
   setHoveredCharacter: Dispatch<SetStateAction<null | string>>;
   sortingType: boolean;
 }) {

@@ -13,7 +13,7 @@ function TilesMapForApi({
   showText,
 }: {
   selectedImage: string | undefined;
-  setSelectedImage: Dispatch<SetStateAction<string | undefined>>;
+  setSelectedImage: Dispatch<SetStateAction<string | null>>;
   setTileMapValue: Dispatch<SetStateAction<object>>;
   tileMapValue: object;
   characterData: CharacterType[];

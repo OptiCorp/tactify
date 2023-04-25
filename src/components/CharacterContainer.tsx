@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 
 import { getData } from 'api';
 import { CharacterType, Cost, Props } from '../types';
@@ -47,7 +47,8 @@ function CharacterContainer() {
   const [sortingType, setSortingType] = useState<boolean>(true);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
-  const [selectedImage, setSelectedImage] = useState();
+  const [selectedImage, setSelectedImage] =
+    useState<SetStateAction<string[]>>();
   const [hoveredCharacter, setHoveredCharacter] = useState<null | string>(null);
   const [saveBoard, setSaveBoard] = useState();
   const [tileMapValue, setTileMapValue] = useState({
@@ -123,12 +124,12 @@ function CharacterContainer() {
     });
   }
 
-  function handleSaveBoard() {
+  /* function handleSaveBoard() {
     if (!isEmpty) {
       setSaveBoard([{ ...tileMapValue }]);
       console.log(saveBoard);
     }
-  }
+  } */
 
   useEffect(() => {
     setLoading(true);
