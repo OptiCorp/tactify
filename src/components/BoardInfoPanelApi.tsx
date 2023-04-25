@@ -40,8 +40,11 @@ function BoardInfoPanelApi({
           </div>
         ))
       ) : (
-        <div className="flex h-full items-center justify-center text-center text-xs  text-amber-500">
-          <p>Place characters on the board to see synergies</p>
+        <div className="flex h-full flex-col items-center justify-center text-center text-xs  text-amber-500">
+          <p className="shadow-amber-700 text-shadow-sm">
+            Place characters on the board to see synergies
+          </p>
+          <img className="h-10 w-10 opacity-60 invert" src="synergy.png" />
         </div>
       )}
     </div>
