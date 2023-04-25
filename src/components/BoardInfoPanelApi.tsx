@@ -34,6 +34,7 @@ function BoardInfoPanelApi({
             key={idx}
             className=" mb-2 flex items-center gap-1  border border-amber-500 bg-orange-300 bg-opacity-20 p-2 text-xs font-bold text-amber-500"
           >
+            <img src={`${species}.png`} />
             <span>{count}</span>
             <span className="w-[120px] truncate capitalize">{species}</span>
           </div>
