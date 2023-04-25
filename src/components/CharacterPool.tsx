@@ -40,7 +40,7 @@ function CharacterPool({
 
   return (
     <div className="">
-      <div className="grid max-h-52 min-h-[208px] min-w-[338px] grid-cols-4 gap-4 overflow-auto border border-t-0 border-amber-500 bg-[#22272e] p-4 text-white backdrop-blur-md md:min-h-[250px]  md:min-w-[750px] md:grid-cols-8  md:gap-4 lg:min-h-[250px] lg:min-w-[978px] lg:grid-cols-12">
+      <div className="grid max-h-52 min-h-[233px] min-w-[338px] grid-cols-4 gap-4 overflow-auto border border-t-0 border-amber-500 bg-[#22272e] p-4 text-white backdrop-blur-md md:min-h-[250px]  md:min-w-[750px] md:grid-cols-8  md:gap-4 lg:min-h-[250px] lg:min-w-[978px] lg:grid-cols-12">
         {sortedCharacters.map(({ name, image, cost }) => {
           const currentClickedImage =
             clickedCharacter === name && selectedImage.includes(image);
