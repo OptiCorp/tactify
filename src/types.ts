@@ -17,6 +17,19 @@ export type CharacterType = {
   id?: number;
 };
 
+export type SpecieBonusTypes = {
+  [key: string]: {
+    stat: string;
+    amount: number;
+    threshold: number;
+  };
+};
+
+export type SpecieType = {
+  species: string;
+  image: string;
+};
+
 export type Props = {
   selectedImage?: string[];
   setSelectedImage: () => void;

@@ -1,19 +1,6 @@
 import { SetStateAction, useState } from 'react';
-import { CharacterType } from '../types';
+import { CharacterType, SpecieBonusTypes, SpecieType } from '../types';
 import Portal from './Portal';
-
-type SpecieBonusTypes = {
-  [key: string]: {
-    stat: string;
-    amount: number;
-    threshold: number;
-  };
-};
-
-type SpecieType = {
-  species: string;
-  image: string;
-};
 
 function BoardInfoPanelApi({
   characterData,
