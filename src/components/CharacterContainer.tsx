@@ -31,16 +31,6 @@ function getCost(value: string): Cost {
   return cost || Cost.Human;
 }
 
-// Make a dynamic board?
-/* const obj = {};
-function createObject(numKeys: number, numValues: number) {
-  for (let i = 0; i < numKeys; i++) {
-    obj[`a${i}`] = null;
-  }
-  return obj;
-}
-createObject(28, 28); */
-
 function CharacterContainer() {
   const [characterData, setCharacterData] = useState<CharacterType[]>([]);
   const [sortedCharacters, setSortedCharacters] = useState<CharacterType[]>([]);
@@ -48,10 +38,10 @@ function CharacterContainer() {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] =
-    useState<SetStateAction<string[]>>();
+    useState<SetStateAction<string | null>>(null);
   const [hoveredCharacter, setHoveredCharacter] = useState<null | string>(null);
   const [saveBoard, setSaveBoard] = useState();
-  const [tileMapValue, setTileMapValue] = useState({
+  const [tileMapValue, setTileMapValue] = useState<SetStateAction<object>>({
     a1: null,
     a2: null,
     a3: null,

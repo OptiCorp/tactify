@@ -9,6 +9,7 @@ type SpecieBonusTypes = {
     threshold: number;
   };
 };
+
 type SpecieType = {
   species: string;
   image: string;
@@ -33,13 +34,15 @@ function BoardInfoPanelApi({
       const character = characterData.find((char) => char.image === tile);
       if (character) {
         const { species, image }: SpecieType = character;
-        if (!uniqueSpecies[species]) {
+        if (typeof uniqueSpecies[species] === 'undefined') {
           uniqueSpecies[species] = { count: 0, characters: new Set() };
         }
-        if (!uniqueSpecies[species]?.characters.has(image)) {
-          if (uniqueSpecies[species] != undefined) {
-            uniqueSpecies[species].count += 1;
-          }
+        const currentSpecies = uniqueSpecies[species];
+        if (
+          currentSpecies?.characters &&
+          !currentSpecies?.characters.has(image)
+        ) {
+          currentSpecies.count += 1;
           uniqueSpecies[species]?.characters.add(image);
         }
       }
@@ -68,8 +71,7 @@ function BoardInfoPanelApi({
       {sortedSpeciesByCount.length !== 0 ? (
         sortedSpeciesByCount?.map(({ species, count }, idx) => {
           const bonus = specieBonus[species];
-          const bonusAmount = bonus.amount;
-          console.log(specieBonus[species]);
+
           return (
             <div
               key={idx}
@@ -81,7 +83,7 @@ function BoardInfoPanelApi({
               <span>{count}</span>
               <span className="w-[120px] truncate capitalize">{species}</span>
               <Portal>
-                {hoveredSpecie === species && (
+                {hoveredSpecie === species && bonus && (
                   <div className="hidden max-w-[250px] border  border-amber-500 bg-[#22272e] p-2 text-white md:block">
                     <div className="mb-4">
                       <span className="capitalize">{species}</span>
@@ -107,7 +109,7 @@ function BoardInfoPanelApi({
                           {bonus.threshold}
                         </p>
                         <p className="ml-2 text-xs">
-                          +{bonusAmount} {bonus.stat}
+                          +{bonus.amount} {bonus.stat}
                         </p>
                       </div>
                     </div>

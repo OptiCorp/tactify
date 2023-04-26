@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
-import { CharacterType, Props } from '../types';
+import { CharacterType } from '../types';
 import BoardInfoPanelApi from './BoardInfoPanelApi';
 import TextType from './TextType';
 
@@ -10,14 +10,12 @@ function TilesMapForApi({
   setTileMapValue,
   tileMapValue,
   characterData,
-  showText,
 }: {
-  selectedImage: string | undefined;
+  selectedImage: SetStateAction<string | null>;
   setSelectedImage: Dispatch<SetStateAction<string | null>>;
   setTileMapValue: Dispatch<SetStateAction<object>>;
   tileMapValue: object;
   characterData: CharacterType[];
-  showText: boolean;
 }) {
   function getTileValue(key: string) {
     if (selectedImage) {
@@ -73,11 +71,6 @@ function TilesMapForApi({
           })}
         </div> */}
 
-        {showText && (
-          <>
-            <TextType />
-          </>
-        )}
         <div className="z-50">
           <BoardInfoPanelApi
             tileMapValue={tileMapValue}
